@@ -8,66 +8,65 @@
 </head>
 <body>
 
-<header>
-  <strong>Fly High</strong>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/team.html">Team</a>
-    <a href="/matches.html">Matches</a>
-    <a href="/tools.html">Tools</a>
-    <a href="/contact.html">Contact</a>
-  </nav>
-</header>
+  <!-- Shared header -->
+  <div id="header"></div>
 
-<main>
-  <section class="hero">
-    <h1>Fly High Volleyball</h1>
-    <p>
-      A recreational volleyball team based in Berlin, competing in the
-      Kreisliga Berlin. We play for the game, the team, and constant improvement.
-    </p>
-  </section>
+  <main>
+    <section class="hero">
+      <h1>Fly High Volleyball</h1>
+      <p>
+        A recreational volleyball team based in Berlin, competing in the
+        Kreisliga Berlin. We play for the game, the team, and constant improvement.
+      </p>
+    </section>
 
-  <section>
-    <h2>What we do</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Team Volleyball</h3>
-        <p>Regular league matches, training sessions, and a strong team culture.</p>
+    <section>
+      <h2>What we do</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Team Volleyball</h3>
+          <p>
+            Regular league matches, training sessions, and a strong team culture.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Built Our Own Tools</h3>
+          <p>
+            We develop and use custom apps to track stats, plan rotations,
+            and organize referee duties.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Community</h3>
+          <p>
+            Volleyball is more than matches — it’s teamwork, fairness, and fun.
+          </p>
+        </div>
       </div>
-      <div class="card">
-        <h3>Built Our Own Tools</h3>
-        <p>
-          We develop and use custom apps to track stats, plan rotations,
-          and organize referee duties.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Community</h3>
-        <p>Volleyball is more than matches — it’s teamwork, fairness, and fun.</p>
-      </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<footer class="site-footer">
-  <div class="footer-links">
-    <a href="https://www.instagram.com/flyhigh.berlin/" target="_blank" aria-label="Instagram">
-      <span class="icon">📸</span>
-    </a>
-    <a href="https://www.youtube.com/@flyhigh.berlin" target="_blank" aria-label="YouTube">
-      <span class="icon">▶️</span>
-    </a>
-  </div>
+  <!-- Shared footer -->
+  <div id="footer"></div>
 
-  <div class="footer-meta">
-    <span>© Fly High Volleyball · Berlin</span>
-    <span class="dot">·</span>
-    <a href="/impressum.html">Impressum</a>
-    <span class="dot">·</span>
-    <a href="/privacy.html">Privacy</a>
-  </div>
-</footer>
+  <!-- Shared header + footer loader -->
+  <script>
+    fetch("/header.html")
+      .then(response => response.text())
+      .then(html => {
+        const header = document.getElementById("header");
+        if (header) header.innerHTML = html;
+      });
+
+    fetch("/footer.html")
+      .then(response => response.text())
+      .then(html => {
+        const footer = document.getElementById("footer");
+        if (footer) footer.innerHTML = html;
+      });
+  </script>
 
 </body>
 </html>
