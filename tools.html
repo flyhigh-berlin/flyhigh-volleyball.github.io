@@ -8,41 +8,60 @@
 </head>
 <body>
 
-<header>…</header>
+  <!-- Shared header -->
+  <div id="header"></div>
 
-<main>
-  <h1>Our Tools</h1>
-  <p>
-    We built a set of small tools to support our team in matches and training.
-    These apps are used internally by Fly High Berlin.
-  </p>
+  <main>
+    <h1>Our Tools</h1>
+    <p>
+      We built a set of small tools to support our team in matches and training.
+      These apps are used internally by Fly High Berlin.
+    </p>
 
-  <div class="grid">
-    <div class="card">
-      <h3>Serve Stats</h3>
-      <p>
-        Track serve performance during matches, including errors,
-        aces, and serve quality.
-      </p>
+    <div class="grid">
+      <div class="card">
+        <h3>Serve Stats</h3>
+        <p>
+          Track serve performance during matches, including errors,
+          aces, and serve quality.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Schiri Shuffle</h3>
+        <p>
+          Randomly assigns referee duties to players to keep things fair and simple.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Rotation Planner</h3>
+        <p>
+          Plan and visualize player rotations before and during matches.
+        </p>
+      </div>
     </div>
+  </main>
 
-    <div class="card">
-      <h3>Schiri Shuffle</h3>
-      <p>
-        Randomly assigns referee duties to players to keep things fair and simple.
-      </p>
-    </div>
+  <!-- Shared footer -->
+  <div id="footer"></div>
 
-    <div class="card">
-      <h3>Rotation Planner</h3>
-      <p>
-        Plan and visualize player rotations before and during matches.
-      </p>
-    </div>
-  </div>
-</main>
+  <!-- Shared header + footer loader -->
+  <script>
+    fetch("/header.html")
+      .then(response => response.text())
+      .then(html => {
+        const header = document.getElementById("header");
+        if (header) header.innerHTML = html;
+      });
 
-<footer>…</footer>
+    fetch("/footer.html")
+      .then(response => response.text())
+      .then(html => {
+        const footer = document.getElementById("footer");
+        if (footer) footer.innerHTML = html;
+      });
+  </script>
 
 </body>
 </html>
